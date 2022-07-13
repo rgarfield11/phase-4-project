@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :bikerides
+  resources :bikerides, only: [:index, :show, :create]
   resources :users
   resources :bikes
   # Routing logic: fallback requests for React Router.

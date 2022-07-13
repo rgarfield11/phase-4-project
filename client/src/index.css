@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.active {
+  background-color: indianred
+}
+
+.bikeImage {
+  max-height: 250px;
+  max-width: 250px;
+  border-radius: 5%;
+}
+
+.bikeCard {
+  margin: auto;
+  margin-top: 2%;
+  max-width: 30%;
+  padding-top: 10px;
+  border-color: indianred;
+  border-style:ridge;
+  border-radius: 5%;
+}
+
+
