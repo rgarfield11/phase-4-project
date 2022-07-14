@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_secure_password
 #    alias_attribute :user, :renter
 #    alias_attribute :user, :owner
 
@@ -10,4 +11,9 @@ class User < ApplicationRecord
 
     has_many :rented_bikes, class_name: "Bikeride", foreign_key: 'renter_id'
     has_many :owned_bikes, class_name: "Bike", foreign_key: 'owner_id'
+
+    validates :username, uniqueness: true, presence: true
+    validates :location, presence: true
+    validates :first_name, presence: true
+    validates :last_name, presence: true
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :update, :destroy]
+    before_action :find_user, only: [:update, :destroy]
+    skip_before_action :authorize, only: [:create, :index]
     
     def index
         users = User.all
@@ -7,11 +8,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        render json: @user
+        render json: @current_user
     end
 
     def create
         user = User.create!(user_params)
+        session[:user_id] = user.id
         render json: user, status: :created
     end
 
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :email, :password, :location)
+        params.permit(:first_name, :last_name, :location, :username, :password, :password_confirmation, :user)
     end
 
     def find_user

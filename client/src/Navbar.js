@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 
-function NavBar() {
+function NavBar({ user, setUser }) {
     const [ active, setActive ] = useState("");
 
     function handleClick(e) {
         setActive(e.target.value)
+        if (e.target.value === "logout") {
+            handleLogoutClick()
+        }
     }
+
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            setUser(null);
+          }
+        });
+      }
 
     return (
         <header>
@@ -20,6 +31,9 @@ function NavBar() {
                 </NavLink>
                 <NavLink exact className="button" to="/bikeride/new">
                     <button onClick={handleClick} className={active === "Bikeride" ? "active" : ""} value="Bikeride">Get Rollin'</button>
+                </NavLink>
+                <NavLink exact className="button" to="/">
+                    <button onClick={handleClick} className={active === "logout" ? "active" : ""} value="logout">{user ? "Logout" : "Login"}</button>
                 </NavLink>
             </nav>
         </header>

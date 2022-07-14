@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
     before_action :find_bike, only: [:show, :update, :destroy]
+    skip_before_action :authorize, only: [:index]
 
     def index
         bikes = Bike.all
