@@ -21,7 +21,7 @@ end
 
 #users
 10.times.each do 
-    User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username, location: Faker::Address.city)
+    User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.username, location: Faker::Address.city, password: "12345", password_confirmation: "12345")
 end
 
 #bikes

@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
+import {useHistory} from "react-router-dom"
 
-function BikeCard({category, age, returned, image_url}){
+function BikeCard({bike, category, age, returned, image_url, grabBike}){
 
-  const [showForm, setShowForm] = useState(false)
+  const history= useHistory()
 
-  function handleShowForm(e) {
-    setShowForm(prevState => !prevState)
+  function handleFormRoute(e) {
+    grabBike(bike)
+    history.push("/bikeride/new")
+    // console.log(bike)
+    
   }
 
   return (
@@ -19,12 +23,7 @@ function BikeCard({category, age, returned, image_url}){
         <img className="bikeImage" src={image_url} alt="bike"/>
         <h2>{age}</h2>
         <h2>{category} Bike</h2>
-        {returned ? <button onClick={handleShowForm}>🚲</button> : null }
-        {showForm ? 
-          <form>
-
-          </form> 
-        : null }
+        {returned ? <button value={bike.id} onClick={handleFormRoute}>🚲</button> : null }
     </div>
   )
 }

@@ -4,7 +4,7 @@ class User < ApplicationRecord
 #    alias_attribute :user, :owner
 
     has_many :bikerides
-    has_many :bikes, through: :bikerides
+    has_many :bikes, through: :bikerides, dependent: :destroy
 
     # has_many :rented_bikes, through: :bikerides, source: :bike, class_name: "Bike"
     # has_many :owned_bikes, through: :bikerides, source: :bike

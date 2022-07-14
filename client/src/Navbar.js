@@ -18,7 +18,7 @@ function NavBar({ user, setUser }) {
             setUser(null);
           }
         });
-      }
+    }
 
     return (
         <header>

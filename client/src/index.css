@@ -17,18 +17,25 @@ code {
 }
 
 .bikeImage {
-  max-height: 250px;
-  max-width: 250px;
+  height: 250px;
+  width: 250px;
   border-radius: 5%;
 }
 
 .bikeCard {
   margin: auto;
   margin-top: 2%;
-  max-width: 30%;
+  width: 300px;
   padding-top: 10px;
   border-color: indianred;
   border-style:ridge;
+  border-radius: 5%;
+}
+
+.rideImage {
+  margin: auto;
+  height: 300px;
+  width: 300px;
   border-radius: 5%;
 }
 

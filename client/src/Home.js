@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import BikeCard from "./BikeCard"
 
-function Home() {
+function Home({grabBike, bikeList}) {
 
-  const [bikeList, setBikeList] = useState([])
-
-  useEffect(()=>{
-    fetch("/bikes")
-    .then(response => response.json())
-    .then(data => setBikeList(data))
-}, [])
   
   const renderBikes = bikeList.map((bike)=>{
-    return <BikeCard key={bike.id} category={bike.category} age={bike.age} returned={bike.returned} image_url={bike.image_url}/>
+    return <BikeCard key={bike.id} bike={bike} category={bike.category} age={bike.age} returned={bike.returned} image_url={bike.image_url} grabBike={grabBike}/>
   })
+
+
 
   return (
     <div>

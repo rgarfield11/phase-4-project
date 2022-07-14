@@ -19,7 +19,7 @@ class BikeridesController < ApplicationController
     private
 
     def bikeride_params
-        params.permit(:bike_id, :start, :end)
+        params.permit(:bike_id, :start, :end, :renter_id, :owner_id)
     end
 
     def find_bikeride

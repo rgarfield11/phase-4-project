@@ -30,7 +30,7 @@ class BikesController < ApplicationController
     private
 
     def bike_params
-        params.permit(:category, :age, :email, :returned, :owner_id)
+        params.permit(:category, :age, :email, :returned, :image_url, :owner_id)
     end
 
     def find_bike

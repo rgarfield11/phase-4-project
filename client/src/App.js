@@ -11,6 +11,15 @@ import Bikeride from "./Bikeride"
 function App() {
 
   const [user, setUser] = useState(null);
+  const [currentBike, setCurrentBike] = useState([])
+  const [bikeList, setBikeList] = useState([])
+  const [bikerideList, setBikerideList] = useState([])
+
+  useEffect(()=>{
+    fetch("/bikes")
+    .then(response => response.json())
+    .then(data => setBikeList(data))
+}, [])
 
   useEffect(() => {
     // auto-login
@@ -23,6 +32,18 @@ function App() {
 
   if (!user) return <Login setUser={setUser} />;
 
+  function grabBike(e){
+    setCurrentBike(e)
+  }
+
+  function handleAddBike(newBike) {
+    setBikeList([...bikeList, newBike])
+  }
+
+  function handleAddBikeride(newBikeride) {
+    setBikerideList([...bikerideList, newBikeride])
+  }
+
   return (
     <div className="App">
         <Navbar user={user} setUser={setUser}/>
@@ -31,13 +52,13 @@ function App() {
             <Login />
           </Route>
           <Route exact path="/">
-            <Home />
+            <Home grabBike={grabBike} handleAddBike={handleAddBike} bikeList={bikeList} setBikeList={setBikeList}/>
           </Route>
           <Route path="/bikeride/new">
-            <Bikeride />
+            <Bikeride handleAddBikeride={handleAddBikeride} currentBike={currentBike} user={user}/>
           </Route>
           <Route path="/garage">
-            <Garage/>
+            <Garage user={user} grabBike={grabBike} setUser={setUser} handleAddBike={handleAddBike}/>
           </Route>
         </Switch>
     </div>
