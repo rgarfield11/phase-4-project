@@ -7,28 +7,28 @@ function Login({ setUser }) {
 
   return (
     <div>
-      <center>Tandm</center>
+      <center><p className="mastHead">Tandm</p></center>
       {showLogin ? (
         <>
           <LoginForm setUser={setUser} />
           <br />
-          <p>
+          <center>
             Don't have an account? &nbsp;
             <button color="secondary" onClick={() => setShowLogin(false)}>
               Sign Up
             </button>
-          </p>
+          </center>
         </>
       ) : (
         <>
           <SignUpForm setUser={setUser} />
           <br />
-          <p>
+          <center>
             Already have an account? &nbsp;
             <button color="secondary" onClick={() => setShowLogin(true)}>
               Log In
             </button>
-          </p>
+          </center>
         </>
       )}
     </div>

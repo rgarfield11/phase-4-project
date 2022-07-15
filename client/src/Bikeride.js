@@ -4,6 +4,7 @@ function Bikeride({currentBike, user, handleAddBikeride}) {
 
   const [start, setStart] = useState("")
   const [end, setEnd] = useState("")
+  const [confirmMessage, setConfirmMessage] = useState(false)
 
   function handleStart(e) {
     setStart(e.target.value)
@@ -36,6 +37,7 @@ function Bikeride({currentBike, user, handleAddBikeride}) {
         handleAddBikeride(newBikeRide)
       });
     });
+    setConfirmMessage(prevState => !prevState)
   }
 
 
@@ -66,6 +68,7 @@ function Bikeride({currentBike, user, handleAddBikeride}) {
           max="2024-12-31"/>
           <br/>
         <button type="submit">Confirm Rental</button>
+        {confirmMessage ? <p>Thanks, {user.first_name}! you're all set to pick up your bike from {currentBike.owner.first_name} in {currentBike.owner.location} </p>: null}
       </form>
     </div>
   )

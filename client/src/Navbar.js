@@ -32,8 +32,8 @@ function NavBar({ user, setUser }) {
                 <NavLink exact className="button" to="/bikeride/new">
                     <button onClick={handleClick} className={active === "Bikeride" ? "active" : ""} value="Bikeride">Get Rollin'</button>
                 </NavLink>
-                <NavLink exact className="button" to="/">
-                    <button onClick={handleClick} className={active === "logout" ? "active" : ""} value="logout">{user ? "Logout" : "Login"}</button>
+                <NavLink className="butt" to="/">
+                    <button className="logout" id="logoutButton" onClick={handleClick} value="logout">{user ? "Logout" : "Login"}</button>
                 </NavLink>
             </nav>
         </header>

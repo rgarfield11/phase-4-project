@@ -41,14 +41,16 @@ function SignUpForm({ setUser }) {
 
   return (
     <form onSubmit={handleSubmit}>
-        <label htmlFor="first_name">* First Name</label>
+      <center>
+      <h2>Sign up</h2>
+        <label class="floatLabel" htmlFor="first_name">First Name</label>
         <input
           type="text"
           id="first"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
-         <label htmlFor="last_name">* Last Name</label>
+         <label htmlFor="last_name">Last Name</label>
         <input
           type="text"
           id="last"
@@ -92,6 +94,7 @@ function SignUpForm({ setUser }) {
           <Error key={err}>{err}</Error>
         )})}
         </textarea> */}
+        </center>
     </form>
   );
 }

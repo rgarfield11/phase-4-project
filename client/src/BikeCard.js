@@ -1,16 +1,24 @@
 import React from 'react'
 import {useHistory} from "react-router-dom"
+import BicycleRace from "./BicycleRace.mp3"
 
 function BikeCard({bike, category, age, returned, image_url, grabBike}){
 
   const history= useHistory()
 
-  function handleFormRoute(e) {
+  
+  const audio = new Audio(BicycleRace)
+
+  function handleFormRoute() {
     grabBike(bike)
     history.push("/bikeride/new")
     // console.log(bike)
     
+ 
+    audio.play()
+    
   }
+
 
   return (
     // returned ? <div>
@@ -21,9 +29,9 @@ function BikeCard({bike, category, age, returned, image_url, grabBike}){
 
     <div className="bikeCard">
         <img className="bikeImage" src={image_url} alt="bike"/>
-        <h2>{age}</h2>
-        <h2>{category} Bike</h2>
-        {returned ? <button value={bike.id} onClick={handleFormRoute}>🚲</button> : null }
+        <h3>{age}</h3>
+        <h3>{category} Bike</h3>
+        {returned ? <button className="rentMe" value={bike.id} onClick={handleFormRoute}>🚲 Rent me! 🚲</button> : null }
     </div>
   )
 }
