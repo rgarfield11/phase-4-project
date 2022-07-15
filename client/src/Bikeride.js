@@ -43,7 +43,7 @@ function Bikeride({currentBike, user, handleAddBikeride}) {
 
   return (
     <div>
-      <h2>Get Rollin!</h2>
+      <center><p className="mastHead">Tandm</p></center>
       <img className="rideImage" alt="bike"  src={currentBike.image_url}/>
     
       <form onSubmit={handleSubmitBikeride}>

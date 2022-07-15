@@ -101,6 +101,7 @@ const renderOwnedBikes = ownedBikes.map((bike)=>{
 
   return (
     <div>
+      <center><p className="mastHead">Tandm</p></center>
       <h1>Hello, {user.first_name}!</h1>
       {renderOwnedBikes}
       <button onClick={handleCreateBike} >Add a Bike</button>

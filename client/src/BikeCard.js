@@ -2,7 +2,7 @@ import React from 'react'
 import {useHistory} from "react-router-dom"
 import BicycleRace from "./BicycleRace.mp3"
 
-function BikeCard({bike, category, age, returned, image_url, grabBike}){
+function BikeCard({username, location, bike, category, age, returned, image_url, grabBike}){
 
   const history= useHistory()
 
@@ -29,8 +29,8 @@ function BikeCard({bike, category, age, returned, image_url, grabBike}){
 
     <div className="bikeCard">
         <img className="bikeImage" src={image_url} alt="bike"/>
-        <h3>{age}</h3>
-        <h3>{category} Bike</h3>
+        <h3>{age} {category} Bike</h3>
+        <h5>{username} in {location} </h5>
         {returned ? <button className="rentMe" value={bike.id} onClick={handleFormRoute}>🚲 Rent me! 🚲</button> : null }
     </div>
   )
